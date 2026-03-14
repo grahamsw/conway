@@ -1,0 +1,110 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #0d0d12;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  margin-bottom: 0.5em;
+  color: #00ffcc;
+  text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a24;
+  cursor: pointer;
+  transition: all 0.25s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  border-color: #00ffcc;
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+}
+
+button:active {
+  background-color: #00ffcc;
+  color: #0d0d12;
+}
+
+button.primary {
+  background-color: #00ffcc;
+  color: #0d0d12;
+}
+
+button.primary:hover {
+  background-color: #00e6b8;
+}
+
+.grid-container {
+  display: grid;
+  gap: 1px;
+  background-color: #1a1a24;
+  padding: 1px;
+  border: 2px solid #00ffcc;
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+  border-radius: 4px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.cell {
+  width: 20px;
+  height: 20px;
+  background-color: #0d0d12;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #1a1a24;
+  border-radius: 8px;
+}
+
+input[type="range"] {
+  accent-color: #00ffcc;
+}
