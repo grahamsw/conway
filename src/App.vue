@@ -15,7 +15,7 @@ const isRunning = ref(false);
 const speed = ref(50); // ms
 const intervalId = ref<number | null>(null);
 
-const isRandomActive = ref(false);
+const isRandomActive = ref(true);
 const mutationInterval = ref(10); // generations
 const generationCount = ref(0);
 
@@ -137,13 +137,6 @@ const stopGame = () => {
   }
 };
 
-const clearGrid = () => {
-  stopGame();
-  grid.value = createEmptyGrid();
-  generationCount.value = 0;
-  draw();
-};
-
 const randomizeGrid = () => {
   stopGame();
   const newGrid = createEmptyGrid();
@@ -155,6 +148,11 @@ const randomizeGrid = () => {
   draw();
 };
 
+const restartGame = () => {
+  randomizeGrid();
+  startGame();
+};
+
 const updateSpeed = (newSpeed: number) => {
   speed.value = newSpeed;
   if (isRunning.value) {
@@ -164,7 +162,7 @@ const updateSpeed = (newSpeed: number) => {
 };
 
 onMounted(() => {
-  draw();
+  restartGame();
 });
 
 onUnmounted(() => {
@@ -184,10 +182,7 @@ watch(speed, () => {
     <h1>Conway's Game of Life</h1>
     
     <div class="controls">
-      <button v-if="!isRunning" @click="startGame" class="primary">Start</button>
-      <button v-else @click="stopGame">Stop</button>
-      <button @click="clearGrid">Clear</button>
-      <button @click="randomizeGrid">Randomize</button>
+      <button @click="restartGame" class="primary">Restart</button>
       <button 
         @click="isRandomActive = !isRandomActive" 
         :class="{ primary: isRandomActive }"
